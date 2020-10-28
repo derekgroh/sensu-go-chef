@@ -22,8 +22,8 @@ jobs:
           KITCHEN_LOCAL_YAML: kitchen.appveyor.yml
           TERM: xterm-256color
         with:
-          suite: adoptopenjdk-14
-          os: macos
+          suite: agent
+          os: windows-2019
           action: converge
       - name: Kitchen Verify
         uses: actionshub/test-kitchen@master
