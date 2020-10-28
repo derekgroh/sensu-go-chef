@@ -8,8 +8,9 @@ name: windows
       - master
 
 jobs:
-  windows_agent:
-    runs-on: windows-latest
+  macos:
+    needs: [mdl, yamllint, delivery]
+    runs-on: macos-latest
     steps:
       - name: Check out code
         uses: actions/checkout@master
