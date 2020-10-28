@@ -15,12 +15,15 @@ jobs:
         uses: actions/checkout@master
       - name: Install Chef
         uses: actionshub/chef-install@master
+      - name: Kitchen Diagnose
+        uses: actionshub/test-kitchen@master
       - name: Kitchen Converge
         uses: actionshub/test-kitchen@master
         env:
           CHEF_LICENSE: accept-no-persist
           KITCHEN_LOCAL_YAML: kitchen.appveyor.yml
           TERM: xterm-256color
+          LOG_LEVEL: debug
         with:
           suite: agent
           os: windows-2019
