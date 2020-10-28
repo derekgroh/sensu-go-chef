@@ -16,7 +16,6 @@ jobs:
       - name: Install Chef
         uses: actionshub/chef-install@master
       - name: Kitchen Diagnose
-        uses: actionshub/test-kitchen@master
         run: kitchen diagnose -all        
       - name: Kitchen Converge
         uses: actionshub/test-kitchen@master
