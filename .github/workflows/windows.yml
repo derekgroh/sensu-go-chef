@@ -1,5 +1,5 @@
 ---
-name: windows
+name: kitchen
 
 "on":
   pull_request:
