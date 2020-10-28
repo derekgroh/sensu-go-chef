@@ -26,7 +26,7 @@ platforms:
         memory: 3072
   - name: windows-2019
     driver:
-      box: tas50/windows_2016
+      box: tas50/windows_2019
       customize:
         memory: 3072
 
