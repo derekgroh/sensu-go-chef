@@ -13,14 +13,14 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@master
-        with: 
-          path: c:\cookbooks\
-          GITHUB_WORKSPACE: C:\cookbooks
-      - name: Directory list
-        run: dir c:\cookbooks
+      - name: Cookbooks Directory
+        run: Rename D:\a\sensu-go-chef\ D:\a\cookbooks\
+      - name: Directroy name
+        run: dir D:\a\
       - name: Install Chef
         uses: actionshub/chef-install@master
-      - name: Chef Solo
+      - name: Chef Zero
+        working-directory: D:\a\sensu-go-chef\sensu-go-chef
         run: chef-client -z -o recipe[sensu-go-chef::agent]
       - name: Run Chef Delivery
         uses: actionshub/chef-delivery@master
