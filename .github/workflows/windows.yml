@@ -13,9 +13,11 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@master
+      - name: Directory before
+        run: dir D:\a\        
       - name: Cookbooks Directory
-        run: Rename D:\a\sensu-go-chef\ D:\a\cookbooks\
-      - name: Directroy name
+        run: Rename-Item -Path D:\a\sensu-go-chef\ -NewName D:\a\cookbooks\
+      - name: Directory after
         run: dir D:\a\
       - name: Install Chef
         uses: actionshub/chef-install@master
