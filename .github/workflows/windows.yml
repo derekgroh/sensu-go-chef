@@ -17,6 +17,9 @@ jobs:
         uses: actionshub/chef-install@master
       - name: Create Link
         run: cmd /c mklink /d  D:\a\cookbooks\ D:\a\sensu-go-chef\
+      - name: Install Other cookbooks
+        working-directory: D:\a\
+        run: berks install
       - name: Chef Zero
         working-directory: D:\a\
         env:
