@@ -20,8 +20,10 @@ jobs:
         run: berks vendor -b D:\a\cookbooks\sensu-go-chef\Berksfile
       - name: Create Link
         run: cmd /c mklink /d  D:\a\cookbooks\ D:\a\berks-cookbooks\
+      - name: list directory
+        run: dir D:\a\cookbooks\
       - name: Chef Zero
-        working-directory: D:\a\
+        working-directory: D:\a\cookbooks\sensu-go-chef\
         env:
          CHEF_LICENSE: accept-no-persist
         run: chef-client -z -o sensu-go-chef::agent
