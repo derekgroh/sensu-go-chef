@@ -1,9 +1,6 @@
 ---
 driver:
-  name: proxy
-  host: localhost
-  reset_command: "exit 0"
-  port: 5985
+  name: vagrant
   username: vagrant
   password: vagrant
 
@@ -35,6 +32,7 @@ suites:
   - name: agent
     run_list:
       - recipe[sensu_test::agent]
+      - recipe[sensu_test::ctl]
     verifier:
       inspec_tests:
         - test/integration/agent

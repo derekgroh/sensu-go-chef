@@ -14,9 +14,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@master
       - name: Install Chef
-        uses: actionshub/chef-install@master
-      - name: Kitchen Diagnose
-        run: kitchen diagnose    
+        uses: actionshub/chef-install@master   
       - name: Kitchen Converge
         uses: actionshub/test-kitchen@master
         env:
