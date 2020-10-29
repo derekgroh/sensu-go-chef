@@ -15,11 +15,11 @@ jobs:
         uses: actions/checkout@master
       - name: Install Chef
         uses: actionshub/chef-install@master
-      - name: Create Link
-        run: cmd /c mklink /d  D:\a\cookbooks\ D:\a\sensu-go-chef\
       - name: Berks
         working-directory: D:\a\
         run: berks vendor -b D:\a\cookbooks\sensu-go-chef\Berksfile
+      - name: Create Link
+        run: cmd /c mklink /d  D:\a\cookbooks\ D:\a\berks-cookbooks\
       - name: Chef Zero
         working-directory: D:\a\
         env:
