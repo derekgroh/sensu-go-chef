@@ -19,7 +19,7 @@ jobs:
         run: cmd /c mklink /d  D:\a\cookbooks\ D:\a\sensu-go-chef\
       - name: Install Other cookbooks
         working-directory: D:\a\
-        run: berks install
+        run: berks install -b D:\a\cookbooks\sensu-go-chef\Berksfile
       - name: Chef Zero
         working-directory: D:\a\
         env:
