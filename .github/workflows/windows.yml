@@ -16,7 +16,7 @@ jobs:
       - name: Directory before
         run: dir D:\a\
       - name: Create Link
-        run: New-Item -ItemType HardLink -Path D:\a\Cookbooks\ -Target D:\a\sensu-go-chef\sensu-go-chef
+        run: cmd /c mklink /d D:\a\Cookbooks\ D:\a\sensu-go-chef\sensu-go-chef\
       - name: Directory after
         run: dir D:\a\
       - name: Install Chef
