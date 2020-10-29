@@ -14,9 +14,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@master
       - name: Directory before
-        run: dir D:\a\        
-      - name: Cookbooks Directory
-        run: Rename-Item -Path D:\a\sensu-go-chef\ -NewName D:\a\cookbooks\
+        run: dir D:\a\
+      - name: Create Link
+        run: New-Item -ItemType HardLink -Path D:\a\Cookbooks\ -Target D:\a\sensu-go-chef\sensu-go-chef
       - name: Directory after
         run: dir D:\a\
       - name: Install Chef
