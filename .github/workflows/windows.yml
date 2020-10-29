@@ -22,7 +22,7 @@ jobs:
       - name: Install Chef
         uses: actionshub/chef-install@master
       - name: Chef Zero
-        working-directory: D:\a\sensu-go-chef\sensu-go-chef
+        working-directory: D:\a\
         env:
          CHEF_LICENSE: accept-no-persist
         run: chef-client -z -o sensu-go-chef::agent
