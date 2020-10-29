@@ -16,7 +16,7 @@ jobs:
       - name: Install Chef
         uses: actionshub/chef-install@master
       - name: Create Link
-        run: cmd /c mklink /d C:/opscode/chef-workstation/bin/ D:\a\sensu-go-chef\sensu-go-chef\
+        run: cmd /c mklink /d C:\opscode\chef-workstation\bin\ D:\a\sensu-go-chef\sensu-go-chef\
       - name: Chef Zero
         working-directory: D:\a\
         env:
