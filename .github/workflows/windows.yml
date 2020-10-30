@@ -28,7 +28,7 @@ jobs:
          CHEF_LICENSE: accept-no-persist
         run: chef-client -z -o sensu_test::agent
       - name: Verify
-        run: chef exec inspec D:\a\sensu-go-chef\sensu-go-chef\test\integration\agent\agent_spec.rb
+        run: chef exec inspec exec D:\a\sensu-go-chef\sensu-go-chef\test\integration\agent\agent_spec.rb
         env:
          CHEF_LICENSE: accept-no-persist
   windows_ctl:
@@ -51,6 +51,6 @@ jobs:
          CHEF_LICENSE: accept-no-persist
         run: chef-client -z -o sensu_test::ctl
       - name: Verify
-        run: chef exec inspec D:\a\sensu-go-chef\sensu-go-chef\test\integration\ctl\ctl_spec.rb
+        run: chef exec inspec exec D:\a\sensu-go-chef\sensu-go-chef\test\integration\ctl\ctl_spec.rb
         env:
          CHEF_LICENSE: accept-no-persist
