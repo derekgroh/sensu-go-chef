@@ -22,16 +22,12 @@ jobs:
       - name: Berks
         working-directory: D:\a\
         run: berks vendor -b D:\a\sensu-go-chef\sensu-go-chef\Berksfile
-      - name: list directory
-        run: dir D:\a\cookbooks\
       - name: Chef Zero
         working-directory: D:\a\cookbooks\sensu-go\
         env:
          CHEF_LICENSE: accept-no-persist
         run: chef-client -z -o sensu_test::agent
-      - name: Run Chef Delivery
-        uses: actionshub/chef-delivery@master
-      - name: Inspec
+      - name: Verify
         run: chef exec inspec D:\a\sensu-go-chef\sensu-go-chef\test\integration\agent\agent_spec.rb
         env:
          CHEF_LICENSE: accept-no-persist
@@ -49,16 +45,12 @@ jobs:
       - name: Berks
         working-directory: D:\a\
         run: berks vendor -b D:\a\sensu-go-chef\sensu-go-chef\Berksfile
-      - name: list directory
-        run: dir D:\a\cookbooks\
       - name: Chef Zero
         working-directory: D:\a\cookbooks\sensu-go\
         env:
          CHEF_LICENSE: accept-no-persist
         run: chef-client -z -o sensu_test::ctl
-      - name: Run Chef Delivery
-        uses: actionshub/chef-delivery@master
-      - name: Inspec
+      - name: Verify
         run: chef exec inspec D:\a\sensu-go-chef\sensu-go-chef\test\integration\ctl\ctl_spec.rb
         env:
          CHEF_LICENSE: accept-no-persist
