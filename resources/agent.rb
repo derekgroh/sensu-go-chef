@@ -35,6 +35,7 @@ property :config, Hash, default: { "name": node['hostname'],
                                    "namespace": 'default',
                                    "backend-url": ['ws://127.0.0.1:8081'],
                                  }
+property :distribution, String, default: 'source'
 action :install do
   # Linux installation - source package
   unless platform?('windows')
@@ -74,10 +75,20 @@ action :install do
 
   # Installs msi for Sensu-Go
   if platform?('windows')
-    windows_package 'sensu-go-agent' do
-      source node['sensu-go']['windows_msi_source']
-      installer_type :custom
-      version node['sensu-go']['msi_version']
+    if new_resource.distribution == 'choco'
+      include_recipe 'chocolatey'
+
+      chocolatey_package 'sensu-agent' do
+        action :install
+      end
+    end
+
+    if new_resource.distribution == 'source'
+      windows_package 'sensu-go-agent' do
+        source node['sensu-go']['windows_msi_source']
+        installer_type :custom
+        version node['sensu-go']['msi_version']
+      end
     end
 
     # Adds install directory to path
@@ -86,7 +97,7 @@ action :install do
     # render template at c:\Programdata\Sensu\config\agent.yml for windows
     file ::File.join('c:/ProgramData/Sensu/config/', 'agent.yml') do
       content(YAML.dump(JSON.parse(new_resource.config.to_json)).to_s)
-      notifies :restart, 'service[SensuAgent]', :delayed
+      # notifies :restart, 'service[SensuAgent]', :delayed
     end
 
     # Installs SensuAgent Service
