@@ -105,6 +105,7 @@ action :install do
       code '.\\sensu-agent.exe service install'
       cwd node['sensu-go']['sensu_bindir']
       not_if '((Get-Service SensuAgent).Name -eq "SensuAgent")'
+      ignore_failure true
     end
 
     # Enable and start SensuAgent service
