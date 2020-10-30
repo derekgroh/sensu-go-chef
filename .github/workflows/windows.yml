@@ -28,7 +28,7 @@ jobs:
         working-directory: D:\a\cookbooks\sensu-go\
         env:
          CHEF_LICENSE: accept-no-persist
-        run: chef-client -z -o sensu-go::agent
+        run: chef-client -z -o sensu_test::agent
       - name: Run Chef Delivery
         uses: actionshub/chef-delivery@master
       - name: Inspec
