@@ -31,6 +31,29 @@ jobs:
         run: chef exec inspec exec D:\a\sensu-go-chef\sensu-go-chef\test\integration\agent\agent_spec.rb
         env:
          CHEF_LICENSE: accept-no-persist
+  windows_agent_choco:
+    runs-on: windows-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+      - name: Install Chef
+        uses: actionshub/chef-install@master
+      - name: Create directory
+        run: mkdir D:\a\berks-cookbooks\
+      - name: Create Link
+        run: cmd /c mklink /d  D:\a\cookbooks\ D:\a\berks-cookbooks\         
+      - name: Berks
+        working-directory: D:\a\
+        run: berks vendor -b D:\a\sensu-go-chef\sensu-go-chef\Berksfile
+      - name: Chef Zero
+        working-directory: D:\a\cookbooks\sensu-go\
+        env:
+         CHEF_LICENSE: accept-no-persist
+        run: chef-client -z -o sensu_test::agent_choco
+      - name: Verify
+        run: chef exec inspec exec D:\a\sensu-go-chef\sensu-go-chef\test\integration\agent\agent_spec.rb
+        env:
+         CHEF_LICENSE: accept-no-persist         
   windows_ctl:
     runs-on: windows-latest
     steps:
