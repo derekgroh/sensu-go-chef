@@ -25,10 +25,10 @@ jobs:
       - name: list directory
         run: dir D:\a\cookbooks\
       - name: Chef Zero
-        working-directory: D:\a\cookbooks\sensu-go-chef\
+        working-directory: D:\a\cookbooks\sensu-go\
         env:
          CHEF_LICENSE: accept-no-persist
-        run: chef-client -z -o sensu-go-chef::agent
+        run: chef-client -z -o sensu-go::agent
       - name: Run Chef Delivery
         uses: actionshub/chef-delivery@master
       - name: Inspec
