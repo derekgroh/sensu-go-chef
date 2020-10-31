@@ -73,7 +73,7 @@ jobs:
         env:
          CHEF_LICENSE: accept-no-persist
         run: chef-client -z -o sensu_test::ctl
-      - name: Verify
+      # - name: Verify
         # run: chef exec inspec exec D:\a\sensu-go-chef\sensu-go-chef\test\integration\ctl\ctl_spec.rb
         # env:
          # CHEF_LICENSE: accept-no-persist
