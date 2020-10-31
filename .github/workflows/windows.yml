@@ -78,5 +78,6 @@ jobs:
         # env:
          # CHEF_LICENSE: accept-no-persist
         run: |
+          refreshenv
           echo $env:path
-          sensuctl entity list
+          c:\Program Files\Sensu\sensu-cli\bin\sensuctl\sensuctl.exe entity list
