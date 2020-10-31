@@ -77,7 +77,3 @@ jobs:
         # run: chef exec inspec exec D:\a\sensu-go-chef\sensu-go-chef\test\integration\ctl\ctl_spec.rb
         # env:
          # CHEF_LICENSE: accept-no-persist
-        run: |
-          refreshenv
-          echo $env:path
-          'c:\Program Files\Sensu\sensu-cli\bin\sensuctl\sensuctl.exe' entity list
